@@ -6,7 +6,7 @@
 
 [![GPL-3.0 Licensed](https://img.shields.io/badge/License-GPL3.0-blue.svg?style=flat)](https://opensource.org/licenses/GPL-3.0) [![Python Version](https://img.shields.io/badge/Python-3.x-orange.svg)](https://www.python.org/) [![openSMILE Version](https://img.shields.io/badge/openSMILE-2.3.0-brightgreen.svg)](https://www.audeering.com/opensmile/) [![Librosa Version](https://img.shields.io/badge/Librosa-0.7.2-green.svg)](https://github.com/librosa/librosa) 
 
-**ReadMe Language** | 中文版 | [English](https://github.com/Zhangtingyuxuan/AcousticFeatureExtraction/README_EN.md) |
+**ReadMe Language** | 中文版 | [English](https://github.com/Zhangtingyuxuan/AcousticFeatureExtraction/blob/master/README_EN.md) |
 
 ## 简介
 
