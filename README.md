@@ -61,8 +61,9 @@ python3 acoustic_feature.py
 
    <center>
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_C1.png" width=90% height=90% />
-       <center>图1 汉语：“蓝天 白云”的语音端点检测</center>
    </center>
+   
+   <center>图1 汉语：“蓝天 白云”的语音端点检测</center>
 
    <center>
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_E1.png" width=90% height=90% />
