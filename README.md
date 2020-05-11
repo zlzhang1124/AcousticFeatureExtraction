@@ -122,6 +122,7 @@ python3 acoustic_feature.py
 * Numpy-1.18.1
 * matplotlib-3.1.3
 * Scipy-1.4.1
+* Soundfile-0.9.0
 
 特别鸣谢：openSMILE和Librosa的开发维护人员、声学等相关学科的科研人员，以及各大博客论坛的大佬们的无私奉献与辛勤劳作！感谢前辈们让我学到了很多相关知识！
 
