@@ -69,7 +69,7 @@ python3 acoustic_feature.py
        <p align=center>图2 英语单元音：[æ]的语音端点检测</p>
    </center>
 
-​同时在./audios路径下会生成对应语音文件的首尾端点检测后的*_vad.wav文件，接下来的特征提取均是通过该文件进行的。在./features文件夹下，会生成利用openSMILE工具包对应的特征集的ARFF格式的features.csv特征文件，文件部分内容见下图3所示。
+​同时在./audios路径下会生成对应语音文件的首尾端点检测后的_vad.wav文件，接下来的特征提取均是通过该文件进行的。在./features文件夹下，会生成利用openSMILE工具包对应的特征集的ARFF格式的features.csv特征文件，文件部分内容见下图3所示：
 
    <center>
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure.png" width=80% height=80% />
@@ -132,6 +132,12 @@ python3 acoustic_feature.py
 ## 赞助
 
 如果你喜欢本程序，并且它对你有些许帮助，欢迎给我打赏一杯奶茶哈~
+
+
+  <center>
+     <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg" width=50% height=50% />
+     <p align=center>微信　　　　　　　　支付宝</p>
+  </center>
 
 
    <center class="half">
