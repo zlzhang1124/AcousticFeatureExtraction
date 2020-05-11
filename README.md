@@ -133,10 +133,6 @@ python3 acoustic_feature.py
 
 如果你喜欢本程序，并且它对你有些许帮助，欢迎给我打赏一杯奶茶哈~
 
-<div align=center>![](https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg)
-   
-   <div align=center>![](https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg)
-   
    <center class="half">
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg" width=20% height=20% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/AliPay.jpg" width=20% height=20% />
        <p align=center>微信　　　　　　　　支付宝</p>
