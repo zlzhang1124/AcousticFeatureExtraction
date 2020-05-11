@@ -12,15 +12,15 @@
 
 * **写在前面**
 
-​    在这之前，本人对于声学一窍不通，奈何实验室项目需求，看了一些文献和博客，这才算是刚刚入了门，尽管坎坷，但发现细品声学，还是挺有意思的。
+​在这之前，本人对于声学一窍不通，奈何实验室项目需求，看了一些文献和博客，这才算是刚刚入了门，尽管坎坷，但发现细品声学，还是挺有意思的。
 
-​    本程序基于python3.6开发，Windows10上运行，其他版本暂时没有测试过，但我感觉python3.x，ubuntu平台应该都可以正常运行，不行的话，按照报错稍微修改适配下，程序里每行我尽量都做了注释。
+​本程序基于python3.6开发，Windows10上运行，其他版本暂时没有测试过，但我感觉python3.x，ubuntu平台应该都可以正常运行，不行的话，按照报错稍微修改适配下，程序里每行我尽量都做了注释。
 
-​    **注意**：由于本人也是边学边搞的这个程序，很多专业的声学名词我也是一知半解，没有深入研究，根据所能理解的，再加上自己的一些理解，写成的这个程序（也许叫demo更好），难免会出现提取到的特征不准确的现象，尤其是在基频追踪、共振峰估计上，方法不同，准确度千差万别，可以尝试更改参数、使用最新的算法，或者直接使用本程序中利用openSMILE特征集提取的特征，避免重复造轮子，又有大厂保证~
+​**注意**：由于本人也是边学边搞的这个程序，很多专业的声学名词我也是一知半解，没有深入研究，根据所能理解的，再加上自己的一些理解，写成的这个程序（也许叫demo更好），难免会出现提取到的特征不准确的现象，尤其是在基频追踪、共振峰估计上，方法不同，准确度千差万别，可以尝试更改参数、使用最新的算法，或者直接使用本程序中利用openSMILE特征集提取的特征，避免重复造轮子，又有大厂保证~
 
 * **关于本程序**
 
-​    本程序利用两种方法对声学特征进行了提取，一种是直接调用openSMILE中的特征配置文件，包括2016-eGeMAPS特征集，共88个特征；2016-ComParE特征集，共6373个特征；2009-InterSpeech Emotion Challenge特征集(IS09_emotion)，共384个特征。这些特征集主要用于基于语音的情绪识别，也可用于语音识别。关于它们详细介绍的相关文献：
+​本程序利用两种方法对声学特征进行了提取，一种是直接调用openSMILE中的特征配置文件，包括2016-eGeMAPS特征集，共88个特征；2016-ComParE特征集，共6373个特征；2009-InterSpeech Emotion Challenge特征集(IS09_emotion)，共384个特征。这些特征集主要用于基于语音的情绪识别，也可用于语音识别。关于它们详细介绍的相关文献：
 
 * [Eyben, Florian, et al. "The Geneva minimalistic acoustic parameter set (GeMAPS) for voice research and affective computing." *IEEE transactions on affective computing* 7.2 (2015): 190-202.](https://ieeexplore.ieee.org/iel7/5165369/7479593/07160715.pdf)
 
@@ -32,30 +32,30 @@
 
 * [Schuller, Björn, Stefan Steidl, and Anton Batliner. "The interspeech 2009 emotion challenge." *Tenth Annual Conference of the International Speech Communication Association*. 2009.](https://mediatum.ub.tum.de/doc/980035/file.pdf)
 
-  ​    一个关于它们的简单整体介绍的博客：[论文笔记：语音情感识别（五）语音特征集之eGeMAPS，ComParE，09IS，BoAW](https://www.cnblogs.com/liaohuiqiang/p/10161033.html)。关于openSMILE工具包及其配置文件的介绍，请参考官方说明文档[openSMILE book](https://www.audeering.com/download/opensmile-book-latest/)。本程序里已经包含该工具包的编译版本及其所需的配置文件，位于./openSMILE文件夹下，因此无需再次下载编译。
+​一个关于它们的简单整体介绍的博客：[论文笔记：语音情感识别（五）语音特征集之eGeMAPS，ComParE，09IS，BoAW](https://www.cnblogs.com/liaohuiqiang/p/10161033.html)。关于openSMILE工具包及其配置文件的介绍，请参考官方说明文档[openSMILE book](https://www.audeering.com/download/opensmile-book-latest/)。本程序里已经包含该工具包的编译版本及其所需的配置文件，位于./openSMILE文件夹下，因此无需再次下载编译。
 
-  ​    第二种是利用Librosa音频处理库，提取了一些常用的声学特征，包括韵律学特征（浊音持续时间、轻音持续时间、有效语音持续时间、短时能量、过零率、基频、对数能量和声压级这些基于帧的LLD特征，以及基于这些LLDs对整段语音的全局统计值的HSF特征，包括最小值、最大值、极差、均值、标准差、偏度和峰度，同时对其一阶和二阶差分也作同样操作）、基于谱的相关特征（39维MFCC特征）和声音质量特征（第1/2/3共振峰中心频率及其带宽、频率微扰、振幅微扰）。
+​第二种是利用Librosa音频处理库，提取了一些常用的声学特征，包括韵律学特征（浊音持续时间、轻音持续时间、有效语音持续时间、短时能量、过零率、基频、对数能量和声压级这些基于帧的LLD特征，以及基于这些LLDs对整段语音的全局统计值的HSF特征，包括最小值、最大值、极差、均值、标准差、偏度和峰度，同时对其一阶和二阶差分也作同样操作）、基于谱的相关特征（39维MFCC特征）和声音质量特征（第1/2/3共振峰中心频率及其带宽、频率微扰、振幅微扰）。
 
-  ​    此外，程序也包括一些语音的预处理部分：预加重、分帧、加窗、FFT；基于双门限法的语音端点检测；声谱图提取。
+​此外，程序也包括一些语音的预处理部分：预加重、分帧、加窗、FFT；基于双门限法的语音端点检测；声谱图提取。
 
-  ​    最后，几乎对每一种特征都给出了图形绘制方法，毕竟可视化真香~
+​最后，几乎对每一种特征都给出了图形绘制方法，毕竟可视化真香~
 
 * **步骤及一些细节展示**
 
-​    首先通过Git将本程序克隆到您的计算机上。
+​首先通过Git将本程序克隆到您的计算机上。
 ```shell
 git clone https://github.com/Zhangtingyuxuan/AcousticFeatureExtraction.git
 ```
 
-​    或者直接download压缩包，或者也可以通过**"Fork"** 按钮，Copy一份副本，然后通过您自己的SSH密钥克隆到本地。
+​或者直接download压缩包，或者也可以通过**"Fork"** 按钮，Copy一份副本，然后通过您自己的SSH密钥克隆到本地。
 
-​    运行本程序之前，请安装必要的[Python3版依赖库](https://github.com/Zhangtingyuxuan/AcousticFeatureExtraction#python-import)。
+​运行本程序之前，请安装必要的[Python3版依赖库](https://github.com/Zhangtingyuxuan/AcousticFeatureExtraction#python-import)。
 
-​    cd到当前程序路径后直接运行本程序：
+​cd到当前程序路径后直接运行本程序：
 ```shell
 python3 acoustic_feature.py
 ```
-​    本程序./audios路径下有两个语音文件：“audio_raw.wav”（汉语：蓝天 白云）和“ae.wav”（英语单元音：[æ]），分别基于这两个语音文件运行程序，会得到以下文件和图形输出，待我一一介绍：
+​本程序./audios路径下有两个语音文件：“audio_raw.wav”（汉语：蓝天 白云）和“ae.wav”（英语单元音：[æ]），分别基于这两个语音文件运行程序，会得到以下文件和图形输出，待我一一介绍：
 
 1. 首先是语音的端点检测：输出的图形见下图1/2。这可以检测一段语音的所有有效语音部分，主要用于语音预处理，也可以通过它实现基于端点检测的语音分割，有关该方法的更细节程序在我的另一个仓库里：[voice_activity_detection](https://github.com/Zhangtingyuxuan/voice_activity_detection)。
 
@@ -69,10 +69,10 @@ python3 acoustic_feature.py
        <p align=center>图2 英语单元音：[æ]的语音端点检测</p>
    </center>
 
-   ​    同时在./audios路径下会生成对应语音文件的首尾端点检测后的*_vad.wav文件，接下来的特征提取均是通过该文件进行的。在./features文件夹下，会生成利用openSMILE工具包对应的特征集的ARFF格式的features.csv特征文件，文件部分内容见下图3所示。
+​同时在./audios路径下会生成对应语音文件的首尾端点检测后的*_vad.wav文件，接下来的特征提取均是通过该文件进行的。在./features文件夹下，会生成利用openSMILE工具包对应的特征集的ARFF格式的features.csv特征文件，文件部分内容见下图3所示。
 
    <center>
-       <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure.png" width=60% height=60% />
+       <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure.png" width=80% height=80% />
        <p align=center>图3 利用openSMILE工具包中IS09_emotion特征集提取到的特征</p>
    </center>
 
@@ -133,7 +133,7 @@ python3 acoustic_feature.py
 
 如果你喜欢本程序，并且它对你有些许帮助，欢迎给我打赏一杯奶茶哈~
 
-<center class="half">
-    <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg" width=20% height=20% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/AliPay.jpg" width=20% height=20% />
-    <p align=center>微信　　　　　　　　支付宝</p>
-</center>
+   <center class="half">
+       <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg" style="zoom:20%" /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/AliPay.jpg" style="zoom:20%" />
+       <p align=center>微信　　　　　　　　支付宝</p>
+   </center>
