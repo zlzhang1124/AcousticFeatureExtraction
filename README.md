@@ -72,7 +72,7 @@ python3 acoustic_feature.py
 ​同时在./audios路径下会生成对应语音文件的首尾端点检测后的_vad.wav文件，接下来的特征提取均是通过该文件进行的。在./features文件夹下，会生成利用openSMILE工具包对应的特征集的ARFF格式的features.csv特征文件，文件部分内容见下图3所示：
 
    <center>
-       <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure.png" width=80% height=80% />
+       <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure.png" width=50% height=50% />
        <p align=center>图3 利用openSMILE工具包中IS09_emotion特征集提取到的特征</p>
    </center>
 
@@ -131,4 +131,11 @@ python3 acoustic_feature.py
 
 ## 赞助
 
-如果你喜欢本程序，并且它对你有些许帮助，欢迎给我打赏一杯奶茶哈~<center class="half"><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg" width=20% height=20% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/AliPay.jpg" width=20% height=20% /><p align=center>微信　　　　　　　　支付宝</p></center>
+如果你喜欢本程序，并且它对你有些许帮助，欢迎给我打赏一杯奶茶哈~
+
+   <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg" width=20% height=20% />
+   <p>微信</p>
+   
+   <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/AliPay.jpg" width=20% height=20% />
+   <p>支付宝</p>
+
