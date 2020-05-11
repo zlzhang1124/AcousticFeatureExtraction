@@ -60,59 +60,58 @@ python3 acoustic_feature.py
 1. 首先是语音的端点检测：输出的图形见下图1/2。这可以检测一段语音的所有有效语音部分，主要用于语音预处理，也可以通过它实现基于端点检测的语音分割，有关该方法的更细节程序在我的另一个仓库里：[voice_activity_detection](https://github.com/Zhangtingyuxuan/voice_activity_detection)。
 
    <center>
-       <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_C1.png" width=90% height=90% />
+       <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_C1.png" style="zoom:50%" />
+       <p align=center>图1 汉语：“蓝天 白云”的语音端点检测</p>
    </center>
-   
-   <center>图1 汉语：“蓝天 白云”的语音端点检测</center>
 
    <center>
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_E1.png" width=90% height=90% />
-       <center>图2 英语单元音：[æ]的语音端点检测</center>
+       <p align=center>图2 英语单元音：[æ]的语音端点检测</p>
    </center>
 
    ​    同时在./audios路径下会生成对应语音文件的首尾端点检测后的*_vad.wav文件，接下来的特征提取均是通过该文件进行的。在./features文件夹下，会生成利用openSMILE工具包对应的特征集的ARFF格式的features.csv特征文件，文件部分内容见下图3所示。
 
    <center>
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure.png" width=60% height=60% />
-       <center>图3 利用openSMILE工具包中IS09_emotion特征集提取到的特征</center>
+       <p align=center>图3 利用openSMILE工具包中IS09_emotion特征集提取到的特征</p>
    </center>
 
 2. 韵律学特征提取，比较了本程序和利用Praat软件在基频F0、声压级和谱特征的差异，由于是一句话语音，难免会出现较大的误差，而对于单元音的比较，误差小了些（图4/5）：
 
    <center class="half">
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_C2.png" width=50% height=50% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/20200511113948.png" width=50% height=50% />
-       <center>图4 汉语：“蓝天 白云”的韵律学特征可视化(左)与利用Praat软件获取的特征可视化(右)比较</center>
+       <p align=center>图4 汉语：“蓝天 白云”的韵律学特征可视化(左)与利用Praat软件获取的特征可视化(右)比较</p>
    </center>
 
    <center class="half">
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_E2.png" width=50% height=50% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/20200511115013.png" width=50% height=50% />
-       <center>图5 英语单元音：[æ]的韵律学特征可视化(左)与利用Praat软件获取的特征可视化(右)比较</center>
+       <p align=center>图5 英语单元音：[æ]的韵律学特征可视化(左)与利用Praat软件获取的特征可视化(右)比较</p>
    </center>
 
 3. 基于谱的相关特征：39维MFCC特征，包括MFCC1-13，其中MFCC1替换为对数能量，再依次计算一阶和二阶差分（图6）。
 
    <center class="half">
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_C3.png" width=50% height=50% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_E3.png" width=50% height=50% />
-       <center>图6 汉语：“蓝天 白云”(左)和英语单元音[æ](右)的39维MFCC特征可视化</center>
+       <p align=center>图6 汉语：“蓝天 白云”(左)和英语单元音[æ](右)的39维MFCC特征可视化</p>
    </center>
 
 4. 声音质量特征：比较了本程序和利用Praat软件在共振峰中心频率F1/F2/F3差异（图7/8）：
 
    <center class="half">
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_C4.png" width=50% height=50% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/1.png" width=50% height=50% />
-       <center>图7 汉语：“蓝天 白云”的F1-3可视化(左)与利用Praat软件获取的特征可视化(右)比较</center>
+       <p align=center>图7 汉语：“蓝天 白云”的F1-3可视化(左)与利用Praat软件获取的特征可视化(右)比较</p>
    </center>
 
    <center class="half">
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_E4.png" width=50% height=50% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/2.png" width=50% height=50% />
-       <center>图8 英语单元音：[æ]的F1-3可视化(左)与利用Praat软件获取的特征可视化(右)比较</center>
+       <p align=center>图8 英语单元音：[æ]的F1-3可视化(左)与利用Praat软件获取的特征可视化(右)比较</p>
    </center>
 
 5. 声谱图：包括幅值谱、功率谱、log功率谱和log-Mel谱，图9。
 
    <center class="half">
        <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_C5.png" width=50% height=50% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/Figure_E5.png" width=50% height=50% />
-       <center>图9 汉语：“蓝天 白云”(左)和英语单元音[æ](右)的各种声谱图可视化</center>
+       <p align=center>图9 汉语：“蓝天 白云”(左)和英语单元音[æ](右)的各种声谱图可视化</p>
    </center>
 
 ## Python Import
@@ -135,6 +134,6 @@ python3 acoustic_feature.py
 如果你喜欢本程序，并且它对你有些许帮助，欢迎给我打赏一杯奶茶哈~
 
 <center class="half">
-    <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg" width=20% height=20% /></div><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/AliPay.jpg" width=20% height=20% />
-    <center>微信　　　　　　　　支付宝</center>
+    <img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/ef76a3d6b636a87f05a769e08910d93.jpg" width=20% height=20% /><img src="https://cdn.jsdelivr.net/gh/Zhangtingyuxuan/MyPics@master/img/AliPay.jpg" width=20% height=20% />
+    <p align=center>微信　　　　　　　　支付宝</p>
 </center>
